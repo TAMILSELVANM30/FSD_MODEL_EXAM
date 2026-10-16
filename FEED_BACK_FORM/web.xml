@@ -1,0 +1,8 @@
+<servlet>
+  <servlet-name>FeedbackServlet</servlet-name>
+  <servlet-class>FeedbackServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>FeedbackServlet</servlet-name>
+  <url-pattern>/FeedbackServlet</url-pattern>
+</servlet-mapping>

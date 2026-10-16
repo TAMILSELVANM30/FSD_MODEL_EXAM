@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tourist Feedback Form</title>
+  <script>
+    function showFeedback() {
+      const form = document.forms["feedbackForm"];
+      const name = form["name"].value.trim();
+      const email = form["email"].value.trim();
+      const comments = form["comments"].value.trim();
+
+      if (name === "" || email === "" || comments === "") {
+        alert("All fields must be filled out!");
+        return false;
+      }
+
+      document.getElementById("feedbackName").textContent = name;
+      document.getElementById("feedbackEmail").textContent = email;
+      document.getElementById("feedbackComments").textContent = comments;
+      form.hidden = true;
+      document.getElementById("feedbackResult").hidden = false;
+      return false;
+    }
+
+    function editFeedback() {
+      document.forms["feedbackForm"].hidden = false;
+      document.getElementById("feedbackResult").hidden = true;
+    }
+  </script>
+</head>
+<body>
+  <h2>Tourist Feedback Form</h2>
+  <form name="feedbackForm" onsubmit="return showFeedback()">
+    <label>Name:</label><br>
+    <input type="text" name="name"><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" name="email"><br><br>
+
+    <label>Comments:</label><br>
+    <textarea name="comments" rows="4" cols="40"></textarea><br><br>
+
+    <input type="submit" value="Submit Feedback">
+  </form>
+  <section id="feedbackResult" hidden aria-live="polite">
+    <h2>Feedback Received</h2>
+    <p><b>Name:</b> <span id="feedbackName"></span></p>
+    <p><b>Email:</b> <span id="feedbackEmail"></span></p>
+    <p><b>Comments:</b> <span id="feedbackComments"></span></p>
+    <button type="button" onclick="editFeedback()">Edit feedback</button>
+  </section>
+</body>
+</html>
